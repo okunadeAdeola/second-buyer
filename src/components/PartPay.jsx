@@ -4,7 +4,7 @@ const PaystackPaymentForm = () => {
   const [email, setEmail] = useState("");
   const [amount, setAmount] = useState("7,999"); // $3,999
 
-  const goToPayment = () => {
+  const goToPayments = () => {
     if (!email || !amount) {
       alert("Please enter a valid email.");
       return;
