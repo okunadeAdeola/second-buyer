@@ -1,62 +1,113 @@
+/* Reset any default margin */
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+/* Navbar base */
+.navbar {
+  background-color: #121440;
+  padding: 15px 20px;
+  font-family: 'Poppins', sans-serif;
+  position: sticky;
+  top: 0;
+  z-index: 1000;
+  width: 100%;
+}
+
+/* Container flex */
 .navbar-container {
   max-width: 1200px;
   margin: 0 auto;
-  padding: 0 20px;
   display: flex;
+  align-items: center;
   justify-content: space-between;
-  align-items: center;
-}
-body{
-    overflow-x: hidden;
-}
-/* Group logo and menu icon together */
-.logo-and-toggle {
-  display: flex;
-  align-items: center;
-  gap: 15px;
 }
 
+/* Logo */
 .navbar-logo {
-  font-size: 28px;
+  color: #AB9973;
   font-weight: 700;
+  font-size: 1.8rem;
   text-decoration: none;
-  color: #121440;
-  display: flex;
-  align-items: center;
+  user-select: none;
 }
 
-.navbar-logo .highlight {
+/* Hamburger toggle - hidden on desktop */
+.navbar-toggle {
+  display: none;
+  flex-direction: column;
+  cursor: pointer;
+  border: none;
+  background: transparent;
+  outline: none;
+}
+
+/* Hamburger bars */
+.navbar-toggle .bar {
+  height: 3px;
+  width: 25px;
+  background-color: #AB9973;
+  margin: 4px 0;
+  border-radius: 2px;
+  transition: all 0.3s ease;
+}
+
+/* Nav menu - desktop layout */
+.navbar-menu {
+  display: flex;
+  gap: 25px;
+}
+
+/* Nav menu links */
+.navbar-item {
+  color: #fff;
+  text-decoration: none;
+  font-weight: 600;
+  font-size: 1rem;
+  cursor: pointer;
+  transition: color 0.3s ease;
+  white-space: nowrap;
+}
+
+.navbar-item:hover {
   color: #AB9973;
 }
 
-.menu-icon {
-  display: none;
-  font-size: 24px;
-  cursor: pointer;
-  color: #121440;
-}
-
+/* Responsive: On smaller screens */
 @media (max-width: 768px) {
-  .menu-icon {
-    display: block;
-  }
-
-  .nav-links {
-    position: absolute;
-    top: 80px;
-    left: 0;
-    right: 0;
-    background: white;
-    flex-direction: column;
-    align-items: center;
-    gap: 20px;
-    padding: 20px 0;
-    display: none;
-    border-top: 1px solid #eee;
-    box-shadow: 0px 10px 20px rgba(0,0,0,0.05);
-  }
-
-  .nav-links.active {
+  /* Show hamburger */
+  .navbar-toggle {
     display: flex;
+  }
+
+  /* Hide menu by default */
+  .navbar-menu {
+    position: absolute;
+    top: 60px;
+    right: 0;
+    background-color: #121440;
+    flex-direction: column;
+    width: 200px;
+    border-radius: 0 0 0 10px;
+    padding: 10px 0;
+    box-shadow: -2px 3px 10px rgba(0,0,0,0.2);
+    display: none;
+  }
+
+  /* Show menu when active */
+  .navbar-menu.active {
+    display: flex;
+  }
+
+  /* Menu items full width and spacing */
+  .navbar-item {
+    padding: 12px 20px;
+    border-bottom: 1px solid #2c2f55;
+  }
+
+  .navbar-item:last-child {
+    border-bottom: none;
   }
 }

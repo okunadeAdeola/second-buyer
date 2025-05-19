@@ -1,36 +1,34 @@
 import React, { useState } from 'react';
-import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
-import { faVrCardboard, faBars, faTimes } from '@fortawesome/free-solid-svg-icons';
 import './Navbar.css';
 
 const Navbar = () => {
-  const [menuOpen, setMenuOpen] = useState(false);
-  const toggleMenu = () => setMenuOpen(!menuOpen);
+  const [isOpen, setIsOpen] = useState(false);
+
+  const toggleMenu = () => setIsOpen(!isOpen);
 
   return (
     <nav className="navbar">
       <div className="navbar-container">
-        {/* Logo and Menu Icon grouped on left */}
-        <div className="logo-and-toggle">
-          <div className="menu-icon" onClick={toggleMenu}>
-            <FontAwesomeIcon icon={menuOpen ? faTimes : faBars} />
-          </div>
-          <a href="#" className="navbar-logo">
-            <FontAwesomeIcon icon={faVrCardboard} style={{ marginRight: 8 }} />
-            Immersive<span className="highlight">Lens</span>
-          </a>
-        </div>
+        <a href="#home" className="navbar-logo">ImmersiveLens</a>
 
-        {/* Nav Links */}
-        <ul className={`nav-links ${menuOpen ? 'active' : ''}`}>
-          {['Home', 'Services', 'How It Works', 'Pricing', 'Portfolio', 'Contact'].map((text) => (
-            <li key={text}>
-              <a href={`#${text.toLowerCase().replace(/\s/g, '-')}`} onClick={() => setMenuOpen(false)}>
-                {text}
-              </a>
-            </li>
-          ))}
-        </ul>
+        <button 
+          className="navbar-toggle" 
+          onClick={toggleMenu} 
+          aria-label="Toggle menu"
+          aria-expanded={isOpen}
+        >
+          <span className="bar"></span>
+          <span className="bar"></span>
+          <span className="bar"></span>
+        </button>
+
+        <div className={`navbar-menu ${isOpen ? 'active' : ''}`}>
+          <a href="#home" className="navbar-item" onClick={() => setIsOpen(false)}>Home</a>
+          <a href="#services" className="navbar-item" onClick={() => setIsOpen(false)}>Services</a>
+          <a href="#enterprise" className="navbar-item" onClick={() => setIsOpen(false)}>Enterprise</a>
+          <a href="#how-it-works" className="navbar-item" onClick={() => setIsOpen(false)}>How It Works</a>
+          <a href="#contact" className="navbar-item" onClick={() => setIsOpen(false)}>Contact</a>
+        </div>
       </div>
     </nav>
   );
