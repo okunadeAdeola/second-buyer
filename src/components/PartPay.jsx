@@ -52,7 +52,7 @@ const PaystackPaymentForm = () => {
           />
         </div>
 
-        <button onClick={goToPayment} style={styles.button}>
+        <button onClick={goToPayments} style={styles.button}>
           Subscribe Now
         </button>
       </div>
