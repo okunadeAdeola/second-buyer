@@ -1,0 +1,134 @@
+.contact-section {
+  background-color: #F9F7F3;
+  padding: 100px 20px;
+  font-family: 'Poppins', sans-serif;
+}
+body{
+    overflow-x: hidden;
+}
+.container {
+  max-width: 1000px;
+  margin: 0 auto;
+}
+
+.contact-box {
+  display: flex;
+  background-color: #fff;
+  border-radius: 10px;
+  overflow: hidden;
+  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.05);
+}
+
+.contact-info {
+  width: 40%;
+  background-color: #121440;
+  color: #fff;
+  padding: 40px;
+}
+
+.contact-info h3 {
+  margin-bottom: 20px;
+}
+
+.contact-info p {
+  margin-bottom: 15px;
+}
+
+.contact-form {
+  width: 60%;
+  padding: 40px;
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+}
+
+.contact-form h3 {
+  margin-bottom: 20px;
+}
+
+.contact-form input,
+.contact-form textarea {
+  padding: 15px;
+  font-size: 16px;
+  border-radius: 5px;
+  border: 1px solid #eee;
+  resize: vertical;
+}
+
+.contact-form button {
+  background-color: #AB9973;
+  color: #fff;
+  border: none;
+  padding: 15px;
+  border-radius: 30px;
+  font-weight: 600;
+  cursor: pointer;
+  transition: background-color 0.3s ease;
+}
+
+.contact-form button:hover {
+  background-color: #9a865f;
+}
+
+/* Responsive styles */
+@media screen and (max-width: 768px) {
+  .contact-box {
+    flex-direction: column;
+  }
+
+  .contact-info,
+  .contact-form {
+    width: 100%;
+    padding: 30px 20px;
+  }
+
+  .contact-info {
+    text-align: center;
+  }
+}
+/* Ensure no horizontal overflow and text fits inside containers */
+.contact-section,
+.container,
+.contact-box,
+.contact-info,
+.contact-form,
+.contact-form input,
+.contact-form textarea,
+.contact-form button {
+  box-sizing: border-box; /* Include padding/border in width calculations */
+}
+
+/* Prevent inputs and textarea from overflowing */
+.contact-form input,
+.contact-form textarea {
+  width: 100%;
+  max-width: 100%;
+  word-wrap: break-word;
+  overflow-wrap: break-word;
+}
+
+/* Make sure long words or emails break and wrap */
+.contact-info p,
+.contact-form p,
+.contact-info strong,
+.contact-form strong {
+  word-break: break-word;
+  overflow-wrap: break-word;
+}
+
+/* For any headings or long text */
+.contact-info h3,
+.contact-form h3 {
+  word-wrap: break-word;
+  overflow-wrap: break-word;
+}
+
+/* On small screens, text should not overflow */
+@media screen and (max-width: 768px) {
+  .contact-info,
+  .contact-form {
+    overflow-wrap: break-word;
+    word-wrap: break-word;
+    word-break: break-word;
+  }
+}

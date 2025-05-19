@@ -1,0 +1,175 @@
+.enterprise-section {
+  background-color: #F9F7F3;
+  padding: 100px 20px;
+  font-family: 'Poppins', sans-serif;
+}
+body{
+    overflow-x: hidden;
+}
+.enterprise-container {
+  max-width: 1200px;
+  margin: 0 auto;
+}
+
+.enterprise-header {
+  text-align: center;
+  margin-bottom: 60px;
+}
+
+.enterprise-header h2 {
+  font-size: 36px;
+  color: #121440;
+}
+
+.enterprise-header p {
+  color: #666;
+  max-width: 700px;
+  margin: 10px auto 0;
+}
+
+.enterprise-content {
+  background-color: #fff;
+  border-radius: 10px;
+  padding: 50px;
+  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.05);
+  display: flex;
+  flex-wrap: wrap;
+  gap: 40px;
+}
+
+.enterprise-left,
+.enterprise-right {
+  flex: 1;
+  min-width: 300px;
+}
+
+.enterprise-left h3 {
+  font-size: 32px;
+  color: #121440;
+  margin-bottom: 20px;
+}
+
+.enterprise-left p {
+  color: #666;
+  margin-bottom: 30px;
+}
+
+.enterprise-feature {
+  display: flex;
+  margin-bottom: 25px;
+}
+
+.enterprise-icon {
+  width: 60px;
+  height: 60px;
+  border-radius: 15px;
+  background-color: #F9F7F3;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin-right: 20px;
+}
+
+.enterprise-icon .icon {
+  font-size: 24px;
+  color: #AB9973;
+}
+
+.enterprise-right .enterprise-image {
+  width: 100%;
+  border-radius: 10px;
+  box-shadow: 0 10px 25px rgba(0, 0, 0, 0.1);
+  margin-bottom: 30px;
+}
+
+.enterprise-price-box {
+  background-color: #F9F7F3;
+  padding: 30px;
+  border-radius: 10px;
+  text-align: center;
+  margin-bottom: 30px;
+}
+
+.enterprise-price-box h3 {
+  font-size: 24px;
+  color: #AB9973;
+  margin-bottom: 10px;
+}
+
+.enterprise-button-wrapper {
+  text-align: center;
+}
+
+.enterprise-button {
+  display: inline-block;
+  background-color: #AB9973;
+  color: white;
+  font-weight: 600;
+  padding: 15px 40px;
+  border-radius: 30px;
+  text-decoration: none;
+  box-shadow: 0 5px 15px rgba(171, 153, 115, 0.3);
+}
+
+@media screen and (max-width: 768px) {
+  .enterprise-content {
+    flex-direction: column;
+    padding: 30px;
+  }
+
+  .enterprise-left,
+  .enterprise-right {
+    padding: 0;
+  }
+
+  .enterprise-price-box h3 {
+    font-size: 20px;
+  }
+
+  .enterprise-button {
+    padding: 12px 30px;
+  }
+}
+/* Prevent text overflow and force wrapping in titles and paragraphs */
+.enterprise-section h2,
+.enterprise-section h3,
+.enterprise-section h4,
+.enterprise-section p {
+  overflow-wrap: break-word;
+  word-wrap: break-word;
+  word-break: break-word;
+}
+
+/* Limit max-width on headings and paragraphs for better readability */
+.enterprise-header h2,
+.enterprise-left h3,
+.enterprise-left p,
+.enterprise-feature h4,
+.enterprise-feature p,
+.enterprise-price-box h3,
+.enterprise-price-box p {
+  max-width: 100%;
+  white-space: normal; /* prevent text from staying on one line */
+}
+
+/* Ensure the icons and their containers do not overflow */
+.enterprise-icon {
+  flex-shrink: 0; /* prevent shrinking */
+}
+
+/* Prevent button text overflow */
+.enterprise-button {
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  display: inline-block;
+  max-width: 100%;
+  box-sizing: border-box;
+}
+
+/* Responsive tweak: on very small devices, allow button text to wrap */
+@media screen and (max-width: 400px) {
+  .enterprise-button {
+    white-space: normal;
+  }
+}
