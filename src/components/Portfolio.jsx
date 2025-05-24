@@ -1,10 +1,10 @@
 import React from 'react';
-
+import portfolioImage from '../assets/images/image2.jpg'
 const portfolioItems = [
   {
     title: 'Luxury Penthouse',
     description: '360° Virtual Tour with custom staging for a high-end penthouse in downtown.',
-    image: '/api/placeholder/400/300'
+    // image: {portfolioImage}
   },
   {
     title: 'Modern Villa',
@@ -42,7 +42,7 @@ const Portfolio = () => (
       <div style={styles.grid}>
         {portfolioItems.map((item, i) => (
           <div key={i} style={styles.item}>
-            <img src={item.image} alt={item.title} style={styles.image} />
+            <img src={portfolioImage} alt={item.title} style={styles.image}  className='portfolioImage'/>
             <div style={styles.overlay}>
               <h3>{item.title}</h3>
               <p>{item.description}</p>

@@ -12,8 +12,24 @@ html, body {
 
 /* Optional: prevent any wide elements from causing overflow */
 body > * {
-  max-width: 100vw;
+  max-width: 120vw;
   overflow-wrap: break-word;
   word-wrap: break-word;
   word-break: break-word;
+}
+.landingImage{
+  width: 650px !important;
+  height: 600px !important;
+}
+
+.portfolioImage:hover{
+  display: none;
+}
+
+@media screen and (max-width: 380px) {
+  .landingImage{
+  width: 320px !important;
+  height: 300px !important;
+  display: none;
+}
 }

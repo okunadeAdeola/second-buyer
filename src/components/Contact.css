@@ -1,134 +1,154 @@
 .contact-section {
-  background-color: #F9F7F3;
-  padding: 100px 20px;
+  padding: 60px 20px;
+  background-color: #fdfaf6;
   font-family: 'Poppins', sans-serif;
 }
-body{
-    overflow-x: hidden;
-}
+
 .container {
-  max-width: 1000px;
+  max-width: 1200px;
   margin: 0 auto;
 }
 
-.contact-box {
+/* Shared panels */
+.card-panel {
+  background: #fff;
   display: flex;
-  background-color: #fff;
+  flex-wrap: wrap;
   border-radius: 10px;
   overflow: hidden;
-  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.05);
+  margin-bottom: 50px;
+  box-shadow: 0 4px 20px rgba(0, 0, 0, 0.05);
 }
 
-.contact-info {
-  width: 40%;
+/* Left and right panel layout */
+.left-panel, .right-panel {
+  flex: 1;
+  padding: 40px;
+  min-width: 300px;
+}
+
+.dark-panel {
   background-color: #121440;
   color: #fff;
-  padding: 40px;
 }
 
-.contact-info h3 {
+.light-panel {
+  background-color: #f5f3ef;
+  color: #121440;
+}
+
+.left-panel h3 {
+  font-size: 24px;
   margin-bottom: 20px;
 }
 
-.contact-info p {
-  margin-bottom: 15px;
+.contact-list {
+  list-style: none;
+  padding: 0;
 }
 
-.contact-form {
-  width: 60%;
-  padding: 40px;
+.contact-list li {
   display: flex;
-  flex-direction: column;
-  gap: 20px;
-}
-
-.contact-form h3 {
-  margin-bottom: 20px;
-}
-
-.contact-form input,
-.contact-form textarea {
-  padding: 15px;
+  align-items: center;
+  margin-bottom: 15px;
   font-size: 16px;
-  border-radius: 5px;
-  border: 1px solid #eee;
-  resize: vertical;
 }
 
-.contact-form button {
-  background-color: #AB9973;
+.contact-list i {
+  margin-right: 10px;
+  font-size: 18px;
+}
+
+/* Contact form styles */
+.right-panel h3 {
+  margin-bottom: 20px;
+  color: #121440;
+}
+
+form input,
+form select,
+form textarea {
+  width: 100%;
+  margin-bottom: 15px;
+  padding: 12px 15px;
+  font-size: 16px;
+  border: 1px solid #ccc;
+  border-radius: 6px;
+}
+
+form textarea {
+  min-height: 120px;
+  resize: none;
+}
+
+.form-row {
+  display: flex;
+  gap: 15px;
+}
+
+button[type="submit"] {
+  background-color: #b99d6b;
   color: #fff;
   border: none;
-  padding: 15px;
-  border-radius: 30px;
-  font-weight: 600;
+  padding: 12px 25px;
+  font-size: 16px;
+  border-radius: 6px;
   cursor: pointer;
-  transition: background-color 0.3s ease;
+  transition: 0.3s;
 }
 
-.contact-form button:hover {
-  background-color: #9a865f;
+button[type="submit"]:hover {
+  background-color: #121440;
+}
+.till{
+  color: #121440;
+  margin-left: 37%;
+  font-size: 35px;
+  padding-top: 20px;
+  padding-bottom: 29px;
+}
+/* Consultation features */
+.features-box {
+  background: #fff;
+  padding: 20px;
+  border-radius: 8px;
+  margin: 20px 0;
 }
 
-/* Responsive styles */
-@media screen and (max-width: 768px) {
-  .contact-box {
+.feature-list {
+  list-style: none;
+  padding-left: 0;
+  line-height: 2;
+}
+
+.feature-list li {
+  color: #121440;
+  font-weight: 500;
+}
+
+.price-box {
+  background: #fff;
+  padding: 20px;
+  border-radius: 8px;
+  text-align: center;
+}
+
+.price-box h2 {
+  font-size: 36px;
+  color: #121440;
+}
+
+.price-box span {
+  font-size: 16px;
+  color: #888;
+}
+
+@media (max-width: 768px) {
+  .form-row {
     flex-direction: column;
   }
 
-  .contact-info,
-  .contact-form {
-    width: 100%;
-    padding: 30px 20px;
-  }
-
-  .contact-info {
-    text-align: center;
-  }
-}
-/* Ensure no horizontal overflow and text fits inside containers */
-.contact-section,
-.container,
-.contact-box,
-.contact-info,
-.contact-form,
-.contact-form input,
-.contact-form textarea,
-.contact-form button {
-  box-sizing: border-box; /* Include padding/border in width calculations */
-}
-
-/* Prevent inputs and textarea from overflowing */
-.contact-form input,
-.contact-form textarea {
-  width: 100%;
-  max-width: 100%;
-  word-wrap: break-word;
-  overflow-wrap: break-word;
-}
-
-/* Make sure long words or emails break and wrap */
-.contact-info p,
-.contact-form p,
-.contact-info strong,
-.contact-form strong {
-  word-break: break-word;
-  overflow-wrap: break-word;
-}
-
-/* For any headings or long text */
-.contact-info h3,
-.contact-form h3 {
-  word-wrap: break-word;
-  overflow-wrap: break-word;
-}
-
-/* On small screens, text should not overflow */
-@media screen and (max-width: 768px) {
-  .contact-info,
-  .contact-form {
-    overflow-wrap: break-word;
-    word-wrap: break-word;
-    word-break: break-word;
+  .card-panel {
+    flex-direction: column;
   }
 }

@@ -1,5 +1,6 @@
 import React, { useState } from 'react';
 import './Navbar.css';
+import logo from '../assets/images/logo.png';
 
 const Navbar = () => {
   const [isOpen, setIsOpen] = useState(false);
@@ -9,7 +10,10 @@ const Navbar = () => {
   return (
     <nav className="navbar">
       <div className="navbar-container">
-        <a href="#home" className="navbar-logo">ImmersiveLens</a>
+        <a href="#home" className="navbar-logo">
+          <img src={logo} alt="ImmersiveLens Logo" width={50} height={50} className="logo-icon" />
+          <span className="logo-text">ImmersiveLens</span>
+        </a>
 
         <button 
           className="navbar-toggle" 

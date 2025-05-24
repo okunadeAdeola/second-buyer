@@ -1,6 +1,6 @@
 import React from 'react';
 import './Hero.css'; // ⬅️ Link external CSS file
-
+import FurstImage from '../assets/images/image1.jpg'
 const Hero = () => {
   return (
     <section id="home" className="hero">
@@ -18,8 +18,8 @@ const Hero = () => {
           </div>
           <div className="hero-image">
             <img
-              src="https://via.placeholder.com/600x500"
-              alt="Virtual Reality Property Tour"
+              src={FurstImage}
+              alt="Virtual Reality Property Tour" className='landingImage'
             />
           </div>
         </div>
