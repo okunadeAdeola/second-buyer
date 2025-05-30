@@ -1,78 +1,126 @@
 import React from 'react';
-import portfolioImage from '../assets/images/image2.jpg'
+
+// Importing images directly
+import img2 from '../assets/images/image2.jpg';
+import img3 from '../assets/images/image3.jpg';
+import img4 from '../assets/images/image4.jpg';
+import img5 from '../assets/images/image5.jpg';
+import img6 from '../assets/images/image6.jpg';
+import img7 from '../assets/images/image7.jpg';
+
+// Portfolio items array with imported image variables
 const portfolioItems = [
   {
     title: 'Luxury Penthouse',
     description: '360° Virtual Tour with custom staging for a high-end penthouse in downtown.',
-    // image: {portfolioImage}
+    image: img3
   },
   {
     title: 'Modern Villa',
     description: 'Complete 3D modeling and virtual reality experience for a beachfront villa.',
-    image: '/api/placeholder/400/300'
+    image: img2
   },
   {
     title: 'Commercial Office',
     description: 'Virtual staging and 360° tour for a commercial office space.',
-    image: '/api/placeholder/400/300'
+    image: img4
   },
   {
     title: 'Historic Mansion',
     description: 'Detailed 3D reconstruction of a historic property with before and after views.',
-    image: '/api/placeholder/400/300'
+    image: img5
   },
   {
     title: 'Urban Loft',
     description: 'Virtual staging and 360° tour for a modern urban loft space.',
-    image: '/api/placeholder/400/300'
+    image: img6
   },
   {
     title: 'Countryside Retreat',
     description: 'Immersive virtual tour showcasing interior and exterior features.',
-    image: '/api/placeholder/400/300'
+    image: img7
   }
 ];
 
-const Portfolio = () => (
-  <section id="portfolio" style={{ backgroundColor: '#2A2D7C', color: '#fff', padding: '100px 0', border: '1px solid #fff' }}>
-    <div style={styles.container}>
-      <div style={styles.title}>
-        <h2>Our Portfolio</h2>
-      </div>
-      <div style={styles.grid}>
-        {portfolioItems.map((item, i) => (
-          <div key={i} style={styles.item}>
-            <img src={portfolioImage} alt={item.title} style={styles.image}  className='portfolioImage'/>
-            <div style={styles.overlay}>
-              <h3>{item.title}</h3>
-              <p>{item.description}</p>
+const Portfolio = () => {
+  return (
+    <section
+      id="portfolio"
+      style={{
+        backgroundColor: '#2A2D7C',
+        color: '#fff',
+        padding: '100px 0',
+        border: '1px solid #fff'
+      }}
+    >
+      <div style={styles.container}>
+        <div style={styles.title}>
+          <h2>Our Portfolio</h2>
+        </div>
+
+        <div style={styles.grid}>
+          {portfolioItems.map((item, i) => (
+            <div key={i} style={styles.item} className="portfolio-item">
+              <img
+                src={item.image}
+                alt={item.title}
+                style={styles.image}
+                className="portfolioImage"
+              />
+              <div className="overlay" style={styles.overlay}>
+                <h3>{item.title}</h3>
+                <p>{item.description}</p>
+              </div>
             </div>
-          </div>
-        ))}
+          ))}
+        </div>
+
+        <div style={{ marginTop: 40, textAlign: 'center' }}>
+          <a href="#" style={styles.button}>
+            View All Projects
+          </a>
+        </div>
       </div>
-      <div style={{ marginTop: 40, textAlign: 'center' }}>
-        <a href="#" style={styles.button}>View All Projects</a>
-      </div>
-    </div>
-  </section>
-);
+
+      {/* Add hover effect with inline styles and CSS fallback */}
+      <style>
+        {`
+          .portfolio-item:hover img {
+            transform: scale(1.1);
+          }
+          .portfolio-item:hover .overlay {
+            opacity: 1;
+          }
+        `}
+      </style>
+    </section>
+  );
+};
 
 const styles = {
-  container: { maxWidth: 1200, margin: '0 auto', padding: '0 20px' },
-  title: { textAlign: 'center', marginBottom: 60 },
+  container: {
+    maxWidth: 1200,
+    margin: '0 auto',
+    padding: '0 20px'
+  },
+  title: {
+    textAlign: 'center',
+    marginBottom: 60
+  },
   grid: {
     display: 'grid',
     gridTemplateColumns: 'repeat(auto-fit, minmax(300px, 1fr))',
     gap: 20,
-  fontFamily: "'Poppins', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif",
-
+    fontFamily:
+      "'Poppins', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif"
   },
   item: {
     position: 'relative',
     overflow: 'hidden',
     borderRadius: 10,
     height: 300,
-    border: '1px solid #ddd'
+    border: '1px solid #ddd',
+    transition: 'transform 0.5s ease'
   },
   image: {
     width: '100%',
@@ -82,7 +130,10 @@ const styles = {
   },
   overlay: {
     position: 'absolute',
-    top: 0, left: 0, width: '100%', height: '100%',
+    top: 0,
+    left: 0,
+    width: '100%',
+    height: '100%',
     backgroundColor: 'rgba(77, 62, 252, 0.8)',
     display: 'flex',
     flexDirection: 'column',
@@ -102,13 +153,6 @@ const styles = {
     textDecoration: 'none',
     fontWeight: 600
   }
-};
-
-// Add hover effect
-styles.item[':hover'] = {
-  ...styles.item,
-  img: { transform: 'scale(1.1)' },
-  overlay: { opacity: 1 }
 };
 
 export default Portfolio;
