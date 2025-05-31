@@ -81,7 +81,15 @@ body{
   box-shadow: 0 10px 25px rgba(0, 0, 0, 0.1);
   margin-bottom: 30px;
 }
-
+.enterprise-image:hover{
+  transform: scale(1.1);
+  transition: 0.7s ease-in-out;
+  cursor: pointer; 
+}
+.enterprise-right{
+  overflow: hidden;
+  border-radius: 20px;
+}
 .enterprise-price-box {
   background-color: #F9F7F3;
   padding: 30px;

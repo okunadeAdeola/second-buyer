@@ -1,34 +1,36 @@
-import React from 'react';
+import React from "react";
 import {
   faBuilding,
   faUsers,
   faCodeBranch,
-  faChartLine
-} from '@fortawesome/free-solid-svg-icons';
-import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
-import './EnterprisePricing.css';
-
+  faChartLine,
+} from "@fortawesome/free-solid-svg-icons";
+import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
+import "./EnterprisePricing.css";
+import jamb from "../assets/images/jamb.jpg";
 const features = [
   {
     icon: faBuilding,
-    title: 'Multiple Property Management',
-    description: 'Manage and visualize up to 50 properties in a single dashboard'
+    title: "Multiple Property Management",
+    description:
+      "Manage and visualize up to 50 properties in a single dashboard",
   },
   {
     icon: faUsers,
-    title: 'Team Collaboration',
-    description: 'Unlimited user accounts with role-based permissions'
+    title: "Team Collaboration",
+    description: "Unlimited user accounts with role-based permissions",
   },
   {
     icon: faCodeBranch,
-    title: 'API Integration',
-    description: 'Seamlessly connect with your existing property management systems'
+    title: "API Integration",
+    description:
+      "Seamlessly connect with your existing property management systems",
   },
   {
     icon: faChartLine,
-    title: 'Advanced Analytics',
-    description: 'Detailed insights on user engagement and conversion metrics'
-  }
+    title: "Advanced Analytics",
+    description: "Detailed insights on user engagement and conversion metrics",
+  },
 ];
 
 const EnterprisePricing = () => {
@@ -38,7 +40,8 @@ const EnterprisePricing = () => {
         <div className="enterprise-header">
           <h2>Enterprise Solutions</h2>
           <p>
-            Designed for large real estate agencies, property developers, and management companies.
+            Designed for large real estate agencies, property developers, and
+            management companies.
           </p>
         </div>
 
@@ -46,8 +49,9 @@ const EnterprisePricing = () => {
           <div className="enterprise-left">
             <h3>Why Choose Enterprise</h3>
             <p>
-              Our enterprise solutions are tailored for companies managing multiple properties and
-              needing full control and insight over their visual assets.
+              Our enterprise solutions are tailored for companies managing
+              multiple properties and needing full control and insight over
+              their visual assets.
             </p>
 
             {features.map((feature, idx) => (
@@ -65,7 +69,7 @@ const EnterprisePricing = () => {
 
           <div className="enterprise-right">
             <img
-              src="https://via.placeholder.com/400x250"
+              src={jamb}
               alt="Enterprise Solution"
               className="enterprise-image"
             />
@@ -74,7 +78,9 @@ const EnterprisePricing = () => {
               <p>Customized based on your specific requirements</p>
             </div>
             <div className="enterprise-button-wrapper">
-              <a href="#contact" className="enterprise-button">Contact Sales</a>
+              <a href="#contact" className="enterprise-button">
+                Contact Sales
+              </a>
             </div>
           </div>
         </div>

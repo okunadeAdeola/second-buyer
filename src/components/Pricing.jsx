@@ -2,6 +2,7 @@ import React, { useState } from "react";
 import { useNavigate } from "react-router-dom";
 import Payment from './Payment';
 import PartPay from './PartPay';
+import jupeb from "../assets/images/jupeb.jpg"
 const PricingPreview = () => {
   const [activeTab, setActiveTab] = useState("standard");
   const [budget, setBudget] = useState(50000);
@@ -654,8 +655,9 @@ const PricingPreview = () => {
                       fontSize: "1.25rem",
                       fontStyle: "italic",
                     }}
-                  >
-                    Enterprise Solution Image
+                   className="jupebImageDiv">
+                    <img src={jupeb} alt="Enterprise Solution Image" style={{ width: "100%", height: "100%", objectFit: "cover", borderRadius: "0.5rem"}} className="jupebImage"/>
+                    
                   </div>
                 </div>
               </div>
