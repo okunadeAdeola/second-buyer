@@ -102,10 +102,13 @@ button[type="submit"]:hover {
 }
 .till{
   color: #121440;
-  margin-left: 37%;
+  /* margin-left: 37%; */
   font-size: 35px;
   padding-top: 20px;
   padding-bottom: 29px;
+  align-items: center !important;
+  text-align: center;
+  white-space: nowrap;
 }
 /* Consultation features */
 .features-box {
@@ -150,5 +153,9 @@ button[type="submit"]:hover {
 
   .card-panel {
     flex-direction: column;
+  }
+  .till{
+   white-space: normal;
+    margin-left: -10%;
   }
 }

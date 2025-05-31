@@ -20,6 +20,7 @@ body{
   align-items: center;
   justify-content: space-between;
   flex-wrap: wrap;
+  padding-top: 40px;
 }
 
 .hero-text {
@@ -83,7 +84,7 @@ body{
 }
 
 .hero-image img {
-  width: 100%;
+  width: 90%;
   border-radius: 10px;
   box-shadow: 0 20px 40px rgba(0, 0, 0, 0.1);
 }
@@ -123,7 +124,7 @@ body{
 
 @media (max-width: 480px) {
   .hero-text h1 {
-    font-size: 28px;
+    font-size: 32px;
   }
 
   .hero-text p {
@@ -133,5 +134,8 @@ body{
   .btn {
     width: 100%;
     text-align: center;
+  }
+  .hero-image {
+    display: none;
   }
 }
