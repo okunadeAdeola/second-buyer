@@ -2,7 +2,7 @@ import React, { useState } from "react";
 import { useNavigate } from "react-router-dom";
 import Payment from './Payment';
 import PartPay from './PartPay';
-import jupeb from "../assets/images/jupeb.jpg"
+import jupeb from "../assets/images/table.jpg"
 const PricingPreview = () => {
   const [activeTab, setActiveTab] = useState("standard");
   const [budget, setBudget] = useState(50000);
@@ -615,6 +615,7 @@ const PricingPreview = () => {
                     <p style={{ marginBottom: "1rem" }}>
                       Customized based on your specific requirements
                     </p>
+                    <a href="#contact">
                     <button
                       style={{
                         padding: "0.75rem 2rem",
@@ -628,7 +629,7 @@ const PricingPreview = () => {
                       }}
                     >
                       Contact Sales
-                    </button>
+                    </button></a>
                   </div>
                 </div>
 

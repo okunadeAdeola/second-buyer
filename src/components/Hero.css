@@ -82,11 +82,15 @@ body{
 .hero-image {
   width: 50%;
 }
-
+.landingImage{
+  padding-top: 20px !important;
+  height: 550px !important;
+  border-radius: 20px !important;
+}
 .hero-image img {
   width: 90%;
-  border-radius: 10px;
-  box-shadow: 0 20px 40px rgba(0, 0, 0, 0.1);
+  border-radius: 20px;
+  /* box-shadow: 0 20px 40px rgba(0, 0, 0, 0.1); */
 }
 
 /* ======================

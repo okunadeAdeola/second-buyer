@@ -1,6 +1,6 @@
 import React from 'react';
 import './Hero.css'; // ⬅️ Link external CSS file
-import FurstImage from '../assets/images/image1.jpg'
+import FurstImage from '../assets/images/neco.jpg'
 const Hero = () => {
   return (
     <section id="home" className="hero">
