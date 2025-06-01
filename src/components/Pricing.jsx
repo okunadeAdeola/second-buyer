@@ -2,7 +2,7 @@ import React, { useState } from "react";
 import { useNavigate } from "react-router-dom";
 import Payment from './Payment';
 import PartPay from './PartPay';
-import jupeb from "../assets/images/table.jpg"
+import jupeb from "../assets/images/jupeb.jpg"
 const PricingPreview = () => {
   const [activeTab, setActiveTab] = useState("standard");
   const [budget, setBudget] = useState(50000);
