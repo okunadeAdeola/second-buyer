@@ -1,5 +1,5 @@
 import React from 'react';
-
+import reviewImage from "../assets/images/jupeb.jpg"
 const Testimonials = () => {
   return (
     <section id="testimonials" style={{ backgroundColor: '#F4F3FF', padding: '100px 0' }}>
@@ -13,7 +13,7 @@ const Testimonials = () => {
             ImmersiveLens has completely transformed our property marketing. Virtual tours have increased our engagement by 300% and helped us close deals much faster!
           </p>
           <div style={styles.author}>
-            <img src="/api/placeholder/80/80" alt="Sarah Johnson" style={styles.avatar} />
+            <img src={reviewImage} alt="Sarah Johnson" style={styles.avatar} />
             <h4>Sarah Johnson</h4>
             <p>Real Estate Agent, Luxe Properties</p>
           </div>

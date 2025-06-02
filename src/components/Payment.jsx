@@ -1,34 +1,22 @@
 import React, { useState } from "react";
 
-const PaystackPaymentForm = () => {
+const StripePaymentForm = () => {
   const [email, setEmail] = useState("");
-  const [amount, setAmount] = useState("3999"); // $3,999
+  const stripeLink = "https://buy.stripe.com/test_5kQ9AV9bBeEK3g7cgXb7y00"; // Replace with buyer's actual link
 
   const goToPayment = () => {
-    if (!email || !amount) {
+    if (!email) {
       alert("Please enter a valid email.");
       return;
     }
 
-    const handler = window.PaystackPop.setup({
-      key: import.meta.env.VITE_APP_PAYSTACK_KEY,
-      email: email,
-      amount: parseFloat(amount) * 100, // amount in kobo
-      currency: 'NGN',
-      callback: function (response) {
-        alert('Payment complete! Reference: ' + response.reference);
-      },
-      onClose: function () {
-        alert('Transaction was not completed, window closed.');
-      },
-    });
-
-    handler.openIframe();
+    // You can store the email locally or send to backend if needed
+    window.location.href = stripeLink;
   };
 
   return (
     <div style={styles.body}>
-      <h1 style={styles.h1}>Pay with Paystack</h1>
+      <h1 style={styles.h1}>Pay with Stripe</h1>
       <div id="paymentForm" style={styles.paymentForm}>
         <label htmlFor="email">Email Address</label>
         <input
@@ -46,7 +34,7 @@ const PaystackPaymentForm = () => {
           <input
             type="text"
             id="amount"
-            value={amount}
+            value="3999"
             readOnly
             style={{ ...styles.input, paddingLeft: "30px" }}
           />
@@ -57,7 +45,6 @@ const PaystackPaymentForm = () => {
         </button>
       </div>
 
-      {/* Custom focus styles for inputs */}
       <style>
         {`
           #email-address:focus,
@@ -103,7 +90,6 @@ const styles = {
     borderRadius: "4px",
     fontSize: "16px",
     boxSizing: "border-box",
-    borderOutline: 'none', // This line has no effect but left untouched as requested
   },
   amountWrapper: {
     position: "relative",
@@ -120,7 +106,7 @@ const styles = {
   button: {
     width: "100%",
     padding: "12px",
-    backgroundColor: "#28a745",
+    backgroundColor: "#6772e5",
     color: "white",
     fontSize: "16px",
     border: "none",
@@ -131,4 +117,4 @@ const styles = {
   },
 };
 
-export default PaystackPaymentForm;
+export default StripePaymentForm;
