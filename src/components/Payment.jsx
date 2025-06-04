@@ -10,7 +10,7 @@ const products = [
 const StripePayment = () => {
   const handlePayment = async (product) => {
     try {
-      const res = await axios.post('http://localhost:5000/create-checkout-session', {
+      const res = await axios.post('https://buyer-backend-1.onrender.com/create-checkout-session', {
         items: [product],
       });
       window.location.href = res.data.url;
