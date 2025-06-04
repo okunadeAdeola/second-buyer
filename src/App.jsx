@@ -13,6 +13,8 @@ import Payment from './components/Payment';
 import Enterprise from './components/Enterprise';
 import Home from './components/Home'
 import PartPay from './components/PartPay';
+import Success from './components/Success';
+import Cancel from './components/Cancel'
 function App() {
   return (
     <>
@@ -40,6 +42,8 @@ function App() {
         <Route path='/footer' element={<Footer/>}/>
         <Route path="/payment" element={<Payment />} />
         <Route path="/partpay" element={<PartPay />} />
+        <Route path="/success" element={<Success />} />
+        <Route path="/cancel" element={<Cancel />} />
       </Routes>
     </>
   );
