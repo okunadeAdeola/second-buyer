@@ -1,69 +1,48 @@
-import React, { useState } from "react";
+import React from 'react';
+import axios from 'axios';
 
-const PaystackPaymentForm = () => {
-  const [email, setEmail] = useState("");
-  const [amount, setAmount] = useState("7,999"); // $3,999
+const products = [
+  { name: 'Basic Tour', price: 7999, quantity: 1 },
+  { name: 'Premium Tour', price: 8000, quantity: 1 },
+  { name: 'Pro Tour + Hosting', price: 9000, quantity: 1 },
+];
 
-  const goToPayments = () => {
-    if (!email || !amount) {
-      alert("Please enter a valid email.");
-      return;
+const StripePayment = () => {
+  const handlePayment = async (product) => {
+    try {
+      const res = await axios.post('https://buyer-backend-1.onrender.com/create-checkout-session', {
+        items: [product],
+      });
+      window.location.href = res.data.url;
+    } catch (error) {
+      console.error('Payment error:', error);
+      alert('Failed to start payment. Please try again.');
     }
-
-    const handler = window.PaystackPop.setup({
-      key: import.meta.env.VITE_APP_PAYSTACK_KEY,
-      email: email,
-      amount: parseFloat(amount) * 100, // amount in kobo
-      currency: 'NGN',
-      callback: function (response) {
-        alert('Payment complete! Reference: ' + response.reference);
-      },
-      onClose: function () {
-        alert('Transaction was not completed, window closed.');
-      },
-    });
-
-    handler.openIframe();
   };
 
   return (
-    <div style={styles.body}>
-      <h1 style={styles.h1}>Pay with Paystack</h1>
-      <div id="paymentForm" style={styles.paymentForm}>
-        <label htmlFor="email">Email Address</label>
-        <input
-          type="email"
-          id="email-address"
-          value={email}
-          onChange={(e) => setEmail(e.target.value)}
-          placeholder="Enter your email"
-          style={styles.input}
-        />
-
-        <label htmlFor="amount">Amount</label>
-        <div style={styles.amountWrapper}>
-          <span style={styles.dollar}>$</span>
-          <input
-            type="text"
-            id="amount"
-            value={amount}
-            readOnly
-            style={{ ...styles.input, paddingLeft: "30px" }}
-          />
-        </div>
-
-        <button onClick={goToPayments} style={styles.button}>
-          Subscribe Now
-        </button>
+    <div style={styles.container}>
+      <h1>Choose Your Tour Plan</h1>
+      <div style={styles.products}>
+        {products.map((product, idx) => (
+          <div key={idx} style={styles.card}>
+            <h3>{product.name}</h3>
+            <p>${(product.price / 100).toFixed(2)}</p>
+            <button onClick={() => handlePayment(product)} style={styles.button}>
+              Pay Now
+            </button>
+          </div>
+        ))}
       </div>
 
-      {/* Custom focus styles for inputs */}
+      {/* Responsive styles */}
       <style>
         {`
-          #email-address:focus,
-          #amount:focus {
-            outline: none;
-            border-color: #888;
+          @media (max-width: 768px) {
+            .products-wrapper {
+              flex-direction: column;
+              align-items: center;
+            }
           }
         `}
       </style>
@@ -72,63 +51,38 @@ const PaystackPaymentForm = () => {
 };
 
 const styles = {
-  body: {
-    fontFamily: "Arial, sans-serif",
-    backgroundColor: "#f4f4f4",
-    margin: 0,
-    padding: 0,
-    minHeight: "100vh",
-    overflow: "hidden",
-    boxSizing: "border-box",
+  container: {
+    padding: '40px 20px',
+    fontFamily: 'Arial, sans-serif',
+    textAlign: 'center',
   },
-  h1: {
-    textAlign: "center",
-    color: "#333",
-    marginTop: "50px",
+  products: {
+    display: 'flex',
+    flexWrap: 'wrap',          // <-- allow wrapping on small screens
+    justifyContent: 'center',
+    gap: '30px',
+    marginTop: '30px',
   },
-  paymentForm: {
-    width: "400px",
-    margin: "0 auto",
-    padding: "30px",
-    backgroundColor: "white",
-    boxShadow: "0 4px 8px rgba(0, 0, 0, 0.1)",
-    borderRadius: "8px",
-    boxSizing: "border-box",
-  },
-  input: {
-    width: "100%",
-    padding: "10px",
-    marginBottom: "20px",
-    border: "1px solid #ccc",
-    borderRadius: "4px",
-    fontSize: "16px",
-    boxSizing: "border-box",
-    borderOutline: 'none', // This line has no effect but left untouched as requested
-  },
-  amountWrapper: {
-    position: "relative",
-    marginBottom: "20px",
-  },
-  dollar: {
-    position: "absolute",
-    top: "30%",
-    left: "15px",
-    transform: "translateY(-50%)",
-    fontSize: "16px",
-    color: "#555",
+  card: {
+    backgroundColor: '#fff',
+    padding: '20px',
+    borderRadius: '8px',
+    boxShadow: '0 3px 10px rgba(0,0,0,0.1)',
+    width: '100%',
+    maxWidth: '220px',         // <-- make width flexible
+    boxSizing: 'border-box',
   },
   button: {
-    width: "100%",
-    padding: "12px",
-    backgroundColor: "#28a745",
-    color: "white",
-    fontSize: "16px",
-    border: "none",
-    borderRadius: "4px",
-    cursor: "pointer",
-    transition: "background-color 0.3s ease",
-    boxSizing: "border-box",
+    marginTop: '15px',
+    padding: '10px',
+    width: '100%',
+    fontSize: '16px',
+    backgroundColor: '#6772e5',
+    color: 'white',
+    border: 'none',
+    borderRadius: '6px',
+    cursor: 'pointer',
   },
 };
 
-export default PaystackPaymentForm;
+export default StripePayment;
